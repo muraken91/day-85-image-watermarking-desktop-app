@@ -2,7 +2,6 @@ from PIL import Image
 
 WTM_PADDING_FACTOR = 1/30
 
-
 def add_wtm(wtm: Image.Image, img: Image.Image, wtm_options: dict) -> Image.Image:
     # WTM resize
     # - WTM width relative to the image
@@ -19,12 +18,6 @@ def add_wtm(wtm: Image.Image, img: Image.Image, wtm_options: dict) -> Image.Imag
 
     # WTM opacity
     opacity_wtm(new_wtm, wtm_options)
-
-    # TODO: The rotation screws up with the positioning, because the size expands,
-    #       perhaps I can offer an absolute positioning for the user instead, with sliders, on X and Y axis,
-    #       this way, I don't have calculate padding and the upper left corner coordinates and so on
-    # # WTM rotation
-    # new_wtm = new_wtm.rotate(wtm_options['rotation'], expand=True)
 
     # Pasting WTM onto Image
     new_img = img.copy()

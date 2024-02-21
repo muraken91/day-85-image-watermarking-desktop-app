@@ -9,7 +9,6 @@ from img_processing import *
 WTM_PREVIEW_SIZE = (400, 400)
 IMG_PREVIEW_SIZE = (800, 800)
 DEFAULT_RESIZE_FACTOR = 1/6
-# NAME_EXTENSION = "_modified"
 window = Tk()
 
 # ---------------------------- UX SETUP ------------------------------- #
@@ -115,14 +114,6 @@ def change_opacity(opac_value):
     if watermark_path and img_path:
         update_img()
 
-
-# SEE COMMENT IN "img_processing.py" ABOUT ROTATION
-# def rotate(angle):
-#     wtm_options['rotation'] = int(angle)
-#     if watermark_path and img_path:
-#         update_img()
-
-# TODO: improve function, customized file name when saving
 def save_all():
     if watermark_path and list_img_paths:
         save_dir = askdirectory(title="Select the Save Folder")
@@ -181,9 +172,6 @@ size_bar = Scale(from_=1, to=5, orient=HORIZONTAL, command=change_size, resoluti
 opacity_label = Label(text="Opacity", font=bold_font)
 opacity_bar = Scale(from_=0, to=1, orient=HORIZONTAL, resolution=0.1, command=change_opacity)
 opacity_bar.set(1)
-# SEE COMMENT IN "img_processing.py" ABOUT ROTATION
-# rotation_label = Label(text="Rotation", font=bold_font)
-# rotation_bar = Scale(from_=0, to=360, orient=HORIZONTAL, resolution=5, command=rotate)
 
 position_label = Label(text="Position", font=bold_font)
 position_state = StringVar(value="Bottom Right")
@@ -213,9 +201,6 @@ size_label.grid(row=4, column=1)
 size_bar.grid(row=4, column=2, columnspan=2, sticky=E+W)
 opacity_label.grid(row=5, column=1)
 opacity_bar.grid(row=5, column=2, columnspan=2, sticky=E+W)
-# SEE COMMENT IN "img_processing.py" ABOUT ROTATION
-# rotation_label.grid(row=6, column=1)
-# rotation_bar.grid(row=6, column=2, columnspan=2, sticky=E+W)
 position_label.grid(row=7, column=1)
 center_btn.grid(row=7, column=2, sticky=W)
 top_l_btn.grid(row=8, column=2, sticky=W)
@@ -225,7 +210,6 @@ bottom_r_btn.grid(row=8, column=3, sticky=W)
 save_btn.grid(row=10, column=1, columnspan=3, pady=20)
 version_label.grid(row=11, column=1, sticky=S+W)
 canvas.grid(row=0, column=4, rowspan=12)
-
 
 # ----- 4. RUNNING THE LOOP
 window.mainloop()
